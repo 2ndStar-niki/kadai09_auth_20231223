@@ -1,0 +1,39 @@
+body {
+    font-size: 14px;
+    margin: 0;
+  }
+  p,form {
+    margin: 0;
+    padding: 4px 0;
+  }
+  table {
+    margin: 15px auto;
+    padding: 4px;
+    background-color: #fff;
+    border-collapse: collapse;
+  }
+  th, td {
+    margin: 0;
+    padding: 16px;
+    border: 1px solid #bbb;
+  }
+  .goods {
+    font-weight: bold;
+  }
+  .base {
+    width: 480px; 
+    margin: 15px auto;
+  }
+  .error {
+    font-weight: bold;
+    color: #c44;
+  }
+
+  .header{
+    height: 40px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, .1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px;
+  }
