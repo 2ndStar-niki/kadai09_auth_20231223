@@ -1,5 +1,9 @@
 <?php
+  session_start();
+
   require 'funcs.php';
+  loginCheck();
+ 
   $pdo = connect();
   $st = $pdo->query("SELECT * FROM goods");
   $goods = $st->fetchAll();
@@ -18,12 +22,13 @@
   <div>
   <a href="parchaseds.php">購入履歴</a>
   <a href="bookmarks.php">お気に入り</a>
+  <a href="logout.php">ログアウト</a>
   </div>
 </div>
 
 <?php
 for ($i = 0; $i < count($goods); $i++) {
-  // 3項目ごとに新しい行を開く
+  // 5項目ごとに新しい行を開く
   if ($i % 5 == 0) {
     echo '<div class="clearfix">';
   }
@@ -42,16 +47,24 @@ for ($i = 0; $i < count($goods); $i++) {
         ?>
       </select>
       <input type="hidden" name="code" value="<?php echo $goods[$i]['code'] ?>">
-      <input type="submit" name="submit" value="カートへ">
+      <?php
+      // 数量が0の場合はボタンを無効化
+      if ($goods[$i]['code'] == 0) {
+        echo '<input type="submit" name="submit" value="カートへ" disabled>';
+      } else {
+        echo '<input type="submit" name="submit" value="カートへ">';
+      }
+      ?>
       <img src="../images/bookmark_no.jpeg" alt="ブックマーク未" height="24px" class="bookmark-btn" data-code="<?php echo $goods[$i]['code']; ?>">
     </form>
   </div>
   <?php
-  // 3項目ごとに行を閉じる
+  // 5項目ごとに行を閉じる
   if (($i + 1) % 5 == 0 || $i == count($goods) - 1) {
     echo '</div>';
   }
 }
 ?>
+
 </body>
 </html>
