@@ -7,6 +7,8 @@
   $pdo = connect();
   $st = $pdo->query("SELECT * FROM goods");
   $goods = $st->fetchAll();
+
+  $name = $_SESSION['name'];
 ?>
 
 <!DOCTYPE html>
@@ -23,6 +25,7 @@
   <a href="parchaseds.php">購入履歴</a>
   <a href="bookmarks.php">お気に入り</a>
   <a href="logout.php">ログアウト</a>
+  <p><?php echo $name ?>さん、ようこそ</p>
   </div>
 </div>
 

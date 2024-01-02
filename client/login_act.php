@@ -4,6 +4,7 @@
 session_start();
 $lid = $_POST['lid'];
 $lpw = $_POST['lpw'];
+$name = $_SESSION['name'];
 
 //1.  DB接続します
 require_once('funcs.php');
@@ -26,6 +27,7 @@ $val = $stmt->fetch();
 if($val['id'] != '') {
     //Login成功時 該当レコードがあればSESSIONに値を代入
     $_SESSION['chk_ssid'] = session_id();
+    $_SESSION['name'] = $val['name'];
     header('Location: index.php');
 } else {
     //Login失敗時(Logout経由)
