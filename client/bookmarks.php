@@ -14,16 +14,16 @@
 </head>
 <body>
 <div class="header">
-<img src="../images/kongo.png" alt="KONGO">
+  <h1>お気に入り</h1>
   <div>
+  <a href="index.php">お買い物に戻る</a>
   <a href="parchaseds.php">購入履歴</a>
-  <a href="bookmarks.php">お気に入り</a>
   </div>
 </div>
 
 <?php
 for ($i = 0; $i < count($goods); $i++) {
-  // 3項目ごとに新しい行を開く
+  // 5項目ごとに新しい行を開く
   if ($i % 5 == 0) {
     echo '<div class="clearfix">';
   }
@@ -47,7 +47,7 @@ for ($i = 0; $i < count($goods); $i++) {
     </form>
   </div>
   <?php
-  // 3項目ごとに行を閉じる
+  // 5項目ごとに行を閉じる
   if (($i + 1) % 5 == 0 || $i == count($goods) - 1) {
     echo '</div>';
   }
